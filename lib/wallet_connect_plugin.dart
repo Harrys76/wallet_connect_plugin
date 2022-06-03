@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/services.dart';
@@ -10,4 +9,10 @@ class WalletConnectPlugin {
     final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
+
+  static Future<void> connectWallet(String uri) async =>
+      await _channel.invokeMethod('connectWallet', {"uri": uri});
+
+  static Future<void> showBiometricDialog() async =>
+      await _channel.invokeMethod('showBiometricDialog');
 }
