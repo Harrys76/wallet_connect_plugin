@@ -2,7 +2,7 @@ group 'com.wallet.connect.plugin.wallet_connect_plugin'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.3.50'
+    ext.kotlin_version = '1.6.0'
     repositories {
         google()
         mavenCentral()
@@ -27,7 +27,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -42,11 +41,15 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 24
+//        configurations.all {
+//            resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
+//        }
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation("com.github.WalletConnect:WalletConnectKotlinV2:1.0.0-beta04")
+    implementation 'androidx.biometric:biometric-ktx:1.2.0-alpha03'
 }
